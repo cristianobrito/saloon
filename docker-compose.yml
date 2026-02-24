@@ -1,0 +1,12 @@
+version: '3.9'                 # versão do formato que estamos usando
+
+services:                      # serviços que vão subir
+  app:                         # nome do servico/container
+    image: node:20-alpine      # imagem node para criar o container
+    container_name: saloon_app # nome do containner
+    working_dir: /app          # diretorio dentro do container já inicia ai dentro
+    volumes:                   # mapeamento de pastas entre meu pc e o containner
+      - ./:/app                # ./ pasta no meu pc onde esta o docker-compose
+    ports:                     # /app pasta dentro do containner
+      - "3000:3000"            # porta 3000 do containner porta 3000 do meu pc
+    command: sh                # sera executado quando o containner iniciar
